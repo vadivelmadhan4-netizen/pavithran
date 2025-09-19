@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head><title>Voting System Home</title></head>
+<body>
+    <h1>Welcome to the Voting System</h1>
+  <a href="/register">Register</a> |
+  <a href="/login">Login</a> |
+  <a href="/vote">Vote</a> |
+  <a href="/results">Results</a> |
+  <a href="https://www.example.com" target="_blank">WWW</a>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+</body>
+</html>

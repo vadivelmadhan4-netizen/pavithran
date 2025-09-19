@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head><title>Vote</title></head>
+<body>
+    <h2>Vote</h2>
+    {% if user.has_voted %}
+        <p>You have already voted.</p>
+    {% else %}
+    <form method="post">
+        {% for party in parties %}
+            <input type="radio" name="party" value="{{ party }}" required> {{ party }}<br>
+        {% endfor %}
+        <input type="submit" value="Vote">
+    </form>
+    {% endif %}
+    <a href="/results">View Results</a>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+</body>
+</html>
